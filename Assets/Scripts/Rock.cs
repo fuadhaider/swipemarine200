@@ -10,7 +10,11 @@ public class Rock : MonoBehaviour {
 
 	void Start () {
 		rockAS = GetComponent<AudioSource>();
-		transform.position = new Vector3 (transform.position.x,transform.position.y+Random.Range(-2.5f,6f),0);
+		transform.position = 
+		new Vector3 (
+			transform.position.x,
+			transform.position.y+Random.Range(-4f,7f),0
+		);
 	}
 	
 	void Update () {
