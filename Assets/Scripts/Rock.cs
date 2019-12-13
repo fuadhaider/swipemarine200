@@ -13,9 +13,10 @@ public class Rock : MonoBehaviour {
 		transform.position = 
 		new Vector3 (
 			transform.position.x,
-			transform.position.y+Random.Range(-4f,7f),0
-		);
-	}
+      //       transform.position.y+1, 0  //static
+        transform.position.y+Random.Range(-4f,7f),0  //random
+        );  //0,2
+    }
 	
 	void Update () {
 		transform.Translate (Vector3.left*rockSpeed);

@@ -23,27 +23,62 @@ public class SubmarineMove : MonoBehaviour {
 		playerAS = GetComponent<AudioSource>();
 	}
 
-	void Update () {
-		if(Input.touchCount>0 && !dead){
-			Touch touch = Input.GetTouch (0);
-
-			if (touch.phase == TouchPhase.Began) {
-				startTime = Time.time;
-				startPos = touch.position;
-
-			} else if (touch.phase == TouchPhase.Ended) {
-				endTime = Time.time;
-				endPos = touch.position;
-
-				swipeDis = (endPos - startPos).magnitude;
-				swipeTime = endTime - startTime;
-
-				if (swipeTime < maxTime) {
-					swipe();
-				}
-			}
-		}
-	}
+    void Update()
+    {
+			// if (Input.GetMouseButtonDown(0)) {
+	    //     startTime = Time.time;
+	    //     startPos = Input.mousePosition;
+			// }
+			// else if (Input.GetMouseButtonUp(0)) {
+	    //     startTime = Time.time;
+	    //     endPos = Input.mousePosition;
+			// 
+	    //     swipeDis = (endPos - startPos).magnitude;
+      //     swipeTime = endTime - startTime;
+			// 
+      //     if (swipeTime < maxTime)
+      //     {
+      //         swipe();
+      //     }
+			// }
+        if (Input.touchCount > 0 && !dead)
+        {
+            Touch touch = Input.GetTouch(0);
+				
+            if (touch.phase == TouchPhase.Began)
+            {  //first touch
+                startTime = Time.time;
+                startPos = touch.position;
+				
+            }
+            else if (touch.phase == TouchPhase.Moved)
+            {  //latest moved position
+                endTime = Time.time;
+                endPos = touch.position;
+				
+                swipeDis = (endPos - startPos).magnitude;
+                swipeTime = endTime - startTime;
+				
+                if (swipeTime < maxTime)
+                {
+                    swipe();
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {  //finger removed
+                endTime = Time.time;
+                endPos = touch.position;
+				
+                swipeDis = (endPos - startPos).magnitude;
+                swipeTime = endTime - startTime;
+				
+                if (swipeTime < maxTime)
+                {
+                    swipe();
+                }
+            }
+        }
+    }
 		
 	void swipe(){
 		if (endPos.y > startPos.y) {

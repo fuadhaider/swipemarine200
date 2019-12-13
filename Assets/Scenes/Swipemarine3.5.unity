@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 1
-  frequency: 2
+  frequency: 4
   rock: {fileID: 1303328034288022, guid: 5fb9d6b9b8a0d4a2b8d9adad9b7cfac3, type: 3}
 --- !u!4 &110160878
 Transform:
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738f81ad4f76d4a36a1da1e99e728ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 0.09
 --- !u!1 &1094947407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1116,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 1701704492}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683942209}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1322,7 +1322,7 @@ PrefabInstance:
     - target: {fileID: 60071447197586324, guid: 5e8bd18e3d5a649d68c5f0fedae32340,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 50460189863654992, guid: 5e8bd18e3d5a649d68c5f0fedae32340,
         type: 2}
