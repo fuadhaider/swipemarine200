@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce3997e409c248a78aaebdf1bd32ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockSpeed: 0.1
+  rockSpeed: 0.05
   playerPass: {fileID: 8300000, guid: 73e1b42cc1a88d640bab0344c935ba08, type: 3}
 --- !u!82 &82013509472226476
 AudioSource:
