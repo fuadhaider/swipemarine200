@@ -7,7 +7,7 @@ public class Score : MonoBehaviour {
 
 	static int score = 0;
     // static int stage = 0;
-    static int highScore;	// =0;
+  static int highScore;	// =0;
 	Text text;
 
 	static public void AddPoint(){
