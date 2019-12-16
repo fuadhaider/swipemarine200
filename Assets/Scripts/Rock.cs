@@ -26,7 +26,6 @@ public class Rock : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + 1);
 			rockAS.PlayOneShot (playerPass);
-
 		}
 	}
 }
