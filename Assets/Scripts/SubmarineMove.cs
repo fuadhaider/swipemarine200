@@ -51,16 +51,16 @@ public class SubmarineMove : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {	// after death
-		int score = PlayerPrefs.GetInt ("Score");
-		int highScore = PlayerPrefs.GetInt ("HighScore");
-		
-		if (score > highScore) {
+		// int score = PlayerPrefs.GetInt ("Score");
+		// int highScore = PlayerPrefs.GetInt ("HighScore");
+		// 
+		// if (score > highScore) {
 			// if current score is greater than top score
-			PlayerPrefs.SetInt ("HighScore", score);
+			// PlayerPrefs.SetInt ("HighScore", score);
 			// if (score % 3) == 0) { // newly added
 			// 	PlayerPrefs.SetInt ("Score", score);
 			// }
-		}
+		// }
 		Application.LoadLevel (Application.loadedLevel);	// ?load new game
 		playerAS.PlayOneShot(deadSound);
 		dead = true;

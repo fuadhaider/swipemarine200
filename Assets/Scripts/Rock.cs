@@ -19,12 +19,17 @@ public class Rock : MonoBehaviour {
     }
 	
 	void Update () {
-		transform.Translate (Vector3.left*rockSpeed);
+		transform.Translate (Vector3.left * rockSpeed);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.gameObject.tag == "Player") {
-			PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score") + 1);
+			int score = PlayerPrefs.GetInt ("Score");
+			int highScore = PlayerPrefs.GetInt ("HighScore");
+			PlayerPrefs.SetInt ("Score", ++score);
+			if (score % 15 == 0) {
+				PlayerPrefs.SetInt("HighScore", highScore + score );
+			}
 			rockAS.PlayOneShot (playerPass);
 		}
 	}
