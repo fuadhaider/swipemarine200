@@ -22,6 +22,7 @@ public class AdMobManager : MonoBehaviour
         MobileAds.Initialize(appId);
 
         this.RequestBanner();
+        Debug.Log("ad object started");
     }
 
     private void RequestBanner()
@@ -33,12 +34,12 @@ public class AdMobManager : MonoBehaviour
         #else
             string adUnitId = "unexpected_platform";
         #endif
-        
+
         // Clean up banner ad before creating a new one.
-        // if (this.bannerView != null)
-        // {
-        //     this.bannerView.Destroy();
-        // }
+        if (this.bannerView != null)
+        {
+            this.bannerView.Destroy();
+        }
 
         // Create a 320x50 banner at the top of the screen.
         this.bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
@@ -46,12 +47,13 @@ public class AdMobManager : MonoBehaviour
         // AdRequest request = new AdRequest.Builder().Build();
         // test
         AdRequest request = new AdRequest.Builder()
-          // .AddTestDevice("65C2444A09CFD273")
-          .Build();        
+          .AddTestDevice("65C2444A09CFD273")  //Samsung S6 edge
+          .Build();
         // Load the banner with the request.
         this.bannerView.LoadAd(request);
+        Debug.Log("banner ad");
     }
-    
+
     private void RequestInterstitial()
     {
         #if UNITY_ANDROID
@@ -61,15 +63,15 @@ public class AdMobManager : MonoBehaviour
         #else
             string adUnitId = "unexpected_platform";
         #endif
-        
+
         // Clean up interstitial ad before creating a new one.
-        // if (this.interstitial != null)
-        // {
-        //     this.interstitial.Destroy();
-        // }
+        if (this.interstitial != null)
+        {
+            this.interstitial.Destroy();
+        }
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
         // Load the interstitial with the request.
-        // this.interstitial.LoadAd(request);
+        this.interstitial.LoadAd(request);
     }
 }

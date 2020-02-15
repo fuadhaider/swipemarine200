@@ -10,14 +10,14 @@ public class Rock : MonoBehaviour {
 
 	void Start () {
 		rockAS = GetComponent<AudioSource>();
-		transform.position = 
+		transform.position =
 		new Vector3 (
 			transform.position.x,
       //       transform.position.y+1, 0  //static
         transform.position.y+Random.Range(-4f,7f),0  //random
         );  //0,2
     }
-	
+
 	void Update () {
 		transform.Translate (Vector3.left * rockSpeed);
 	}
@@ -27,8 +27,9 @@ public class Rock : MonoBehaviour {
 			int score = PlayerPrefs.GetInt ("Score");
 			int highScore = PlayerPrefs.GetInt ("HighScore");
 			PlayerPrefs.SetInt ("Score", ++score);
-			if (score % 15 == 0) {
-				PlayerPrefs.SetInt("HighScore", highScore + score );
+			if (score % 5 == 0) {
+				PlayerPrefs.SetInt("HighScore", highScore + 5 );
+				AdMobManager.RequestInterstitial();
 			}
 			rockAS.PlayOneShot (playerPass);
 		}
