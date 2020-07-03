@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BGLooper : MonoBehaviour {
 
-	int bgNumber = 2;
+	float bgNumber = 2;
+	float rockNumber = 10;
 	public AudioClip sonar;
 	AudioSource sonarAS;
 
@@ -13,18 +14,26 @@ public class BGLooper : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
-	
+
 		float bgWidth = ((BoxCollider2D)collider).size.x;
 
-		Vector3 pos = collider.transform.position;
+		Vector2 pos = collider.transform.position;
 
-		pos.x += bgWidth * bgNumber;
+		if (collider.gameObject.tag == "BG") {
+			pos.x += bgWidth * bgNumber;
+		}
+		else if (collider.gameObject.tag == "Rock") {
+			pos.x += 3 * rockNumber;
+			pos.y = Random.Range(-4f,6f); //random
+
+		}
+
 
 		collider.transform.position = pos;
 
 		if (collider.gameObject.tag == "BG") {
 			sonarAS.PlayOneShot (sonar);
 
-		}	
+		}
 	}
 }

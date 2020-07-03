@@ -14,9 +14,10 @@ public class Rock : MonoBehaviour {
 		transform.position =
 		new Vector3 (
 			transform.position.x,
-            transform.position.y+1, 0  //static
-        // transform.position.y+Random.Range(-4f,7f),0  //random
-        );  //0,2
+			// transform.position.y+1, 0  //static
+        // transform.position.y +
+				Random.Range(-4f,6f),0  //random
+        );  //-4,7; 0,2
     }
 
 	void Update () {
@@ -28,7 +29,7 @@ public class Rock : MonoBehaviour {
 			int score = PlayerPrefs.GetInt ("Score");
 			int highScore = PlayerPrefs.GetInt ("HighScore");
 			PlayerPrefs.SetInt ("Score", ++score);
-			if (score % 3 == 0) {
+			if (score != 0 && score % 3 == 0) {
 				PlayerPrefs.SetInt("HighScore", highScore + 3 );
 
 				// interstitial
@@ -38,9 +39,9 @@ public class Rock : MonoBehaviour {
 				// AdObject.GetComponent<AdMobManager>().RequestInterstitial();	// 3
 				// AdMobManager ad = AdObject.GetComponent<AdMobManager>();
 				// ad.RequestInterstitial();  // 4
-				adMobManager.RequestInterstitial(); // 5
-
 				Debug.Log("inter ad req ________");
+				adMobManager.RequestInterstitial(); // Calling Interstitial Ad
+
 			}
 			rockAS.PlayOneShot (playerPass);
 		}
