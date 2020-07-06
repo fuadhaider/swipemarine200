@@ -1,4 +1,6 @@
-﻿using System.Collections;
+/*Menu & Play scenes
+	Fetches and displays scores*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +8,6 @@ using UnityEngine.UI;
 public class PlayerPrefText : MonoBehaviour {
 
 	public string name;
-	
-	// void start() {
-	// 	PlayerPrefs.SetInt ("HighScore", 0);
-	// }
 
 	void Update () {
     GetComponent<Text>().text = PlayerPrefs.GetInt(name) + "";

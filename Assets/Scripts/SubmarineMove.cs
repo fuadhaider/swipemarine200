@@ -24,7 +24,7 @@ public class SubmarineMove : MonoBehaviour {
 	    if (touch.phase == TouchPhase.Began) {	// first touch
         startPos = touch.position;
       }
-      else if (touch.phase == TouchPhase.Moved) {  // latest touch position				
+      else if (touch.phase == TouchPhase.Moved) {  // latest touch position
 				endPos = touch.position;
         swipeDis = (endPos - startPos).magnitude;
 				// (a-b).magnitude is the distance between them
@@ -33,47 +33,26 @@ public class SubmarineMove : MonoBehaviour {
       }
       else if (touch.phase == TouchPhase.Ended) {  // finger removed
         endPos = touch.position;
-        swipeDis = (endPos - startPos).magnitude;  
+        swipeDis = (endPos - startPos).magnitude;
         swipe();
       }
     }
   }
-		
+
 	void swipe(){
 		if (endPos.y > startPos.y) {
 			rb.AddForce (new Vector2 (0 , swipeSpeed * swipeDis * Time.deltaTime));
 			// Time.deltaTime moves item by time rather than by frame.
 			// it is a fragment of a second or the time passed since the last frame.
-		} 
+		}
 		else {
 			rb.AddForce (new Vector2 (0 , -swipeSpeed * swipeDis * Time.deltaTime));
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col) {	// after death
-		// int score = PlayerPrefs.GetInt ("Score");
-		// int highScore = PlayerPrefs.GetInt ("HighScore");
-		// 
-		// if (score > highScore) {
-			// if current score is greater than top score
-			// PlayerPrefs.SetInt ("HighScore", score);
-			// if (score % 3) == 0) { // newly added
-			// 	PlayerPrefs.SetInt ("Score", score);
-			// }
-		// }
-		Application.LoadLevel (Application.loadedLevel);	// ?load new game
+		Application.LoadLevel (Application.loadedLevel);	// load new game
 		playerAS.PlayOneShot(deadSound);
 		dead = true;
-	} 
-	// void OnCollisionEnter2D(Collision2D col) {	// after death
-	// 	if (PlayerPrefs.GetInt ("Score") > PlayerPrefs.GetInt ("HighScore"))
-	// 		// if current score is greater than top score
-	// 		PlayerPrefs.SetInt ("HighScore", PlayerPrefs.GetInt ("Score"));
-	// 		if ((PlayerPrefs.GetInt ("Score") % 3) == 0) { // newly added
-	// 			PlayerPrefs.SetInt ("Score", PlayerPrefs.GetInt ("Score"));
-	// 		}
-	// 	Application.LoadLevel (Application.loadedLevel);	// ?load new game
-	// 	playerAS.PlayOneShot(deadSound);
-	// 	dead = true;
-	// } 
+	}
 }

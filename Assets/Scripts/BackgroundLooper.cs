@@ -1,12 +1,15 @@
+/*Play scene
+	Looping background, Seabed and rocks
+	playing sonar sound*/
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGLooper : MonoBehaviour {
+public class BackgroundLooper : MonoBehaviour {
 
 	float bgNumber = 2;
 	float rockNumber = 10;
-	public AudioClip sonar;
+	public AudioClip sonar;	//AudioClip variable from editor input
 	AudioSource sonarAS;
 
 	void Start(){
@@ -25,15 +28,13 @@ public class BGLooper : MonoBehaviour {
 		else if (collider.gameObject.tag == "Rock") {
 			pos.x += 3 * rockNumber;
 			pos.y = Random.Range(-4f,6f); //random
-
+			sonarAS.PlayOneShot (sonar); //sonar sound
 		}
-
 
 		collider.transform.position = pos;
 
-		if (collider.gameObject.tag == "BG") {
-			sonarAS.PlayOneShot (sonar);
-
-		}
+		// if (collider.gameObject.tag == "BG") {
+		// 	sonarAS.PlayOneShot (sonar); //sonar sound
+		// }
 	}
 }

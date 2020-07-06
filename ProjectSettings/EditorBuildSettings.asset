@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SwipemarineMenu01.unity
+    path: Assets/Scenes/Sm_Menu.unity
     guid: 5d0d202feee184b3082a35c84192f529
-  - enabled: 1
-    path: Assets/Scenes/Swipemarine3.5.unity
+  - enabled: 0
+    path: Assets/Scenes/Sm_Play.unity
     guid: 706e6a2272478444db934dac1827d91e
   - enabled: 0
     path: 
@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/swipemarine2_0_0.unity
+    guid: b252e8b41899244efbb68a5c57669b1b
+  - enabled: 1
+    path: Assets/Scenes/Sm_PlayShort.unity
+    guid: 86d876668995149869ea85b9824c2698
   m_configObjects: {}

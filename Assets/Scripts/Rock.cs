@@ -1,13 +1,20 @@
-﻿using System.Collections;
+/*Play scene
+	It sets rocks on a random y axis,
+	moves the rocks,
+	adds score & Top score,
+	Calling Interstitial ad function,
+	plays audio when submarine goes through the rocks
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rock : MonoBehaviour {
 
 	public float rockSpeed;
-	public AudioClip playerPass;
+	public AudioClip playerPass;	//AudioClip variable from editor input
 	AudioSource rockAS;
-	public AdMobManager adMobManager;	// 5
+	public AdMobManager adMobManager;
 
 	void Start () {
 		rockAS = GetComponent<AudioSource>();
@@ -31,17 +38,8 @@ public class Rock : MonoBehaviour {
 			PlayerPrefs.SetInt ("Score", ++score);
 			if (score != 0 && score % 3 == 0) {
 				PlayerPrefs.SetInt("HighScore", highScore + 3 );
-
-				// interstitial
-				// AdMobManager amm = new AdMobManager();
-				// amm.RequestInterstitial();	// 1
-				// AdMobManager.RequestInterstitial();	// 2
-				// AdObject.GetComponent<AdMobManager>().RequestInterstitial();	// 3
-				// AdMobManager ad = AdObject.GetComponent<AdMobManager>();
-				// ad.RequestInterstitial();  // 4
 				Debug.Log("inter ad req ________");
 				adMobManager.RequestInterstitial(); // Calling Interstitial Ad
-
 			}
 			rockAS.PlayOneShot (playerPass);
 		}
