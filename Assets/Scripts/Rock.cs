@@ -36,6 +36,9 @@ public class Rock : MonoBehaviour {
 			int score = PlayerPrefs.GetInt ("Score");
 			int highScore = PlayerPrefs.GetInt ("HighScore");
 			PlayerPrefs.SetInt ("Score", ++score);
+			// if (score == 2) {
+			//
+			// }
 			if (score != 0 && score % 3 == 0) {
 				PlayerPrefs.SetInt("HighScore", highScore + 3 );
 				Debug.Log("inter ad req ________");

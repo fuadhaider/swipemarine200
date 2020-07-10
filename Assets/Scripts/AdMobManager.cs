@@ -30,6 +30,7 @@ public class AdMobManager : MonoBehaviour{
     if (show == false){
       if (this.interstitial.IsLoaded()){
         this.interstitial.Show(); //show the ad
+        Debug.Log("inter ad showed ________");
         show = true;
       }
     }
